@@ -2,6 +2,7 @@
 
 ## Overview
 This repository contains my capstone project for the FlyRank internship program.
+The goal is to build a polished, user-friendly front-end that demonstrates modern web development practices. The project will evolve over the internship as requirements are defined.
 
 ## Tech Stack
 - Node.js (LTS)
@@ -16,7 +17,7 @@ This repository contains my capstone project for the FlyRank internship program.
 [Coming soon]
 
 ## Author
-[Your Name]
+Ashhal Aamir
 
 ## License
 MIT
