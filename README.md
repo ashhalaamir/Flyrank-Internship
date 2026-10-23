@@ -41,10 +41,17 @@ The application uses client-side routing. Here is a map of the available screens
 
 URL	Screen Description
 /	Redirects automatically to /dashboard
+
 /dashboard	Dashboard (empty stats, charts will render placeholders)
+
 /tasks	Task list (empty state message)
+
 /tasks/new	New task form
+
 /tasks/1	Task detail — will show "Task not found" since the backend fetch fails gracefully
+
 /tasks/1/edit	Edit form — same as above, will render but with no data
+
 /profile	Profile (empty fields)
+
 /team	Team overview (empty, plus it checks isAdmin internally)
