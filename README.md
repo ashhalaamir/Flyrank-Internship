@@ -26,7 +26,7 @@ Originally built as part of a full-stack project, this frontend has been success
 Follow these steps to run the application locally:
 
 ### 1. Install Dependencies
-Navigate into this project folder in your terminal and run:
+Navigate into this project folder Flyrank-Internship\react-task-management-assignment> in your terminal and run:
 ```bash
 npm install
 ```
