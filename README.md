@@ -39,8 +39,8 @@ Open your browser and navigate to the URL provided in your terminal (usually htt
 🗺️ Application Routes
 The application uses client-side routing. Here is a map of the available screens and their expected behavior in this standalone frontend version:
 
-URL	Screen Description
-/	Redirects automatically to /dashboard
+URL	Screen Description (USE THESE TO NAVIGATE THROUGH THE SCREENS)
+/	Redirects automatically to /login
 
 /dashboard	Dashboard (empty stats, charts will render placeholders)
 
