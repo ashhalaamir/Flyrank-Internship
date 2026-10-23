@@ -16,7 +16,9 @@ function App() {
       </section>
 
       <section>
-        <h2 className="text-xl font-semibold mb-4">2. Tabs (Use Arrow Keys)</h2>
+        <h2 className="text-xl font-semibold mb-4">
+          2. Tabs (Tab to focus, then use Left/Right Arrow keys)
+        </h2>
         <Tabs />
       </section>
 
