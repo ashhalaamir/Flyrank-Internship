@@ -140,13 +140,13 @@ const Login: React.FC = () => {
               <div>
                 <label className="block text-sm font-semibold text-[#12131C] mb-2">Email</label>
                 <div className="relative">
-                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#9A9EB0]" />
+                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#666B80]" />
                   <input
                     type="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pl-12 pr-4 py-3.5 bg-white border border-[#E4E6F0] rounded-xl text-base focus:ring-2 focus:ring-[#4F46E5] focus:border-[#4F46E5] outline-none transition placeholder:text-[#9A9EB0]"
+                    className="w-full pl-12 pr-4 py-3.5 bg-white border border-[#E4E6F0] rounded-xl text-base focus:ring-2 focus:ring-[#4F46E5] focus:border-[#4F46E5] outline-none transition placeholder:text-[#666B80]"
                     placeholder="you@email.com"
                   />
                 </div>
@@ -155,19 +155,19 @@ const Login: React.FC = () => {
               <div>
                 <label className="block text-sm font-semibold text-[#12131C] mb-2">Password</label>
                 <div className="relative">
-                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#9A9EB0]" />
+                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#666B80]" />
                   <input
                     type={showPassword ? 'text' : 'password'}
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full pl-12 pr-12 py-3.5 bg-white border border-[#E4E6F0] rounded-xl text-base focus:ring-2 focus:ring-[#4F46E5] focus:border-[#4F46E5] outline-none transition placeholder:text-[#9A9EB0]"
+                    className="w-full pl-12 pr-12 py-3.5 bg-white border border-[#E4E6F0] rounded-xl text-base focus:ring-2 focus:ring-[#4F46E5] focus:border-[#4F46E5] outline-none transition placeholder:text-[#666B80]"
                     placeholder="••••••••••"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-[#9A9EB0] hover:text-[#666B80] transition"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-[#666B80] hover:text-[#666B80] transition"
                   >
                     {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>

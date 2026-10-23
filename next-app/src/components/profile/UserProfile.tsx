@@ -216,7 +216,7 @@ const UserProfile: React.FC = () => {
               </span>
             </div>
             <div className="text-[12.8px] text-[#666B80] mt-1">
-              <span className="font-mono text-[11.5px] text-[#9A9EB0]">@{profile?.username}</span>
+              <span className="font-mono text-[11.5px] text-[#666B80]">@{profile?.username}</span>
               <span className="mx-2 text-[#E4E6F0]">·</span>
               Member since {new Date(profile?.createdAt || '').toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
             </div>
@@ -282,7 +282,7 @@ const UserProfile: React.FC = () => {
           <div className="flex items-start justify-between mb-4">
             <div>
               <h3 className="font-['Sora'] font-bold text-[14.5px]">Account details</h3>
-              <p className="text-[11.5px] text-[#9A9EB0] font-mono mt-0.5">visible to you only</p>
+              <p className="text-[11.5px] text-[#666B80] font-mono mt-0.5">visible to you only</p>
             </div>
           </div>
 
@@ -330,7 +330,7 @@ const UserProfile: React.FC = () => {
                   disabled
                   className="w-full px-3 py-2.5 border-[1.5px] border-[#E4E6F0] rounded-[10px] text-[13.5px] bg-[#EFF0F7] text-[#666B80] cursor-not-allowed"
                 />
-                <p className="text-[11px] text-[#9A9EB0] mt-1.5 flex items-center gap-1.5">
+                <p className="text-[11px] text-[#666B80] mt-1.5 flex items-center gap-1.5">
                   <Shield className="w-3.5 h-3.5" />
                   {isAdmin 
                     ? 'You have administrator access across all users\' tasks.'
@@ -350,15 +350,15 @@ const UserProfile: React.FC = () => {
           ) : (
             <div className="space-y-4">
               <div>
-                <label className="block text-[12.5px] font-semibold text-[#9A9EB0] mb-1">Username</label>
+                <label className="block text-[12.5px] font-semibold text-[#666B80] mb-1">Username</label>
                 <p className="text-[14px] font-medium">{profile?.username}</p>
               </div>
               <div>
-                <label className="block text-[12.5px] font-semibold text-[#9A9EB0] mb-1">Email</label>
+                <label className="block text-[12.5px] font-semibold text-[#666B80] mb-1">Email</label>
                 <p className="text-[14px] font-medium">{profile?.email}</p>
               </div>
               <div>
-                <label className="block text-[12.5px] font-semibold text-[#9A9EB0] mb-1">Role</label>
+                <label className="block text-[12.5px] font-semibold text-[#666B80] mb-1">Role</label>
                 <p className="text-[14px] font-medium">{isAdmin ? 'Admin' : 'Regular User'}</p>
               </div>
             </div>
@@ -371,7 +371,7 @@ const UserProfile: React.FC = () => {
             <div className="flex items-start justify-between mb-4">
               <div>
                 <h3 className="font-['Sora'] font-bold text-[14.5px]">Security</h3>
-                <p className="text-[11.5px] text-[#9A9EB0] font-mono mt-0.5">password &amp; access</p>
+                <p className="text-[11.5px] text-[#666B80] font-mono mt-0.5">password &amp; access</p>
               </div>
               {!isChangingPassword && (
                 <button
@@ -399,7 +399,7 @@ const UserProfile: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setShowCurrentPassword(!showCurrentPassword)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9A9EB0] hover:text-[#666B80] transition"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-[#666B80] hover:text-[#666B80] transition"
                     >
                       {showCurrentPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                     </button>
@@ -420,7 +420,7 @@ const UserProfile: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setShowNewPassword(!showNewPassword)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9A9EB0] hover:text-[#666B80] transition"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-[#666B80] hover:text-[#666B80] transition"
                     >
                       {showNewPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                     </button>
@@ -440,7 +440,7 @@ const UserProfile: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9A9EB0] hover:text-[#666B80] transition"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-[#666B80] hover:text-[#666B80] transition"
                     >
                       {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                     </button>
@@ -473,10 +473,10 @@ const UserProfile: React.FC = () => {
             ) : (
               <div className="space-y-3">
                 <div>
-                  <label className="block text-[12.5px] font-semibold text-[#9A9EB0] mb-1">Password</label>
+                  <label className="block text-[12.5px] font-semibold text-[#666B80] mb-1">Password</label>
                   <div className="flex items-center gap-2">
                     <p className="text-[14px] font-medium">••••••••••</p>
-                    <Lock className="w-4 h-4 text-[#9A9EB0]" />
+                    <Lock className="w-4 h-4 text-[#666B80]" />
                   </div>
                 </div>
               </div>
@@ -493,17 +493,17 @@ const UserProfile: React.FC = () => {
             </div>
             <div>
               <div className="flex justify-between items-center py-[11px] border-b border-[#E4E6F0]">
-                <span className="text-[12.5px] text-[#9A9EB0]">User ID</span>
+                <span className="text-[12.5px] text-[#666B80]">User ID</span>
                 <span className="font-mono text-[12.8px] font-semibold">USR-{String(profile?.id || '').padStart(4, '0')}</span>
               </div>
               <div className="flex justify-between items-center py-[11px] border-b border-[#E4E6F0]">
-                <span className="text-[12.5px] text-[#9A9EB0]">Last login</span>
+                <span className="text-[12.5px] text-[#666B80]">Last login</span>
                 <span className="font-mono text-[12.8px] font-semibold">
                   {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                 </span>
               </div>
               <div className="flex justify-between items-center pt-[11px] last:border-none">
-                <span className="text-[12.5px] text-[#9A9EB0]">Permissions</span>
+                <span className="text-[12.5px] text-[#666B80]">Permissions</span>
                 <span className="font-mono text-[12.8px] font-semibold">
                   {isAdmin ? 'Full system access' : 'Own tasks only'}
                 </span>
@@ -518,7 +518,7 @@ const UserProfile: React.FC = () => {
         <div className="flex items-start justify-between mb-4">
           <div>
             <h3 className="font-['Sora'] font-bold text-[14.5px]">My activity</h3>
-            <p className="text-[11.5px] text-[#9A9EB0] font-mono mt-0.5">
+            <p className="text-[11.5px] text-[#666B80] font-mono mt-0.5">
               tasks completed, last 14 weeks
               {totalActivity > 0 && (
                 <span className="ml-2 text-[#4F46E5]">
@@ -531,7 +531,7 @@ const UserProfile: React.FC = () => {
         
         {activityData.length > 0 && totalActivity > 0 ? (
           <div className="flex gap-3.5 items-start overflow-x-auto pb-1">
-            <div className="flex flex-col gap-0.5 font-mono text-[9px] text-[#9A9EB0] pt-3.5">
+            <div className="flex flex-col gap-0.5 font-mono text-[9px] text-[#666B80] pt-3.5">
               <div className="h-3.5 flex items-center"></div>
               <div className="h-3.5 flex items-center">Mon</div>
               <div className="h-3.5 flex items-center"></div>
@@ -555,12 +555,12 @@ const UserProfile: React.FC = () => {
             </div>
           </div>
         ) : (
-          <div className="flex items-center justify-center py-8 text-[#9A9EB0]">
+          <div className="flex items-center justify-center py-8 text-[#666B80]">
             <p className="text-sm">No completed tasks yet. Start completing tasks to see your activity!</p>
           </div>
         )}
         
-        <div className="flex items-center gap-1.5 font-mono text-[10.5px] text-[#9A9EB0] justify-end mt-2.5">
+        <div className="flex items-center gap-1.5 font-mono text-[10.5px] text-[#666B80] justify-end mt-2.5">
           Less
           <span className="w-3 h-3 rounded-sm bg-[#EFF0F7]" />
           <span className="w-3 h-3 rounded-sm bg-[#C9C4F5]" />
@@ -578,7 +578,7 @@ const UserProfile: React.FC = () => {
           </div>
           <div>
             <div className="text-[13.2px] font-semibold">End your session</div>
-            <div className="text-[11.8px] text-[#9A9EB0]">You&apos;ll need to sign in again to access Taskflow.</div>
+            <div className="text-[11.8px] text-[#666B80]">You&apos;ll need to sign in again to access Taskflow.</div>
           </div>
         </div>
         <button

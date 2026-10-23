@@ -131,7 +131,7 @@ const TaskForm: React.FC = () => {
   return (
     <div className="space-y-5 w-full max-w-3xl mx-auto">
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-[13.5px] text-[#9A9EB0] font-mono">
+      <div className="flex items-center gap-2 text-[13.5px] text-[#666B80] font-mono">
         <Link href="/tasks" className="hover:text-[#4F46E5] transition">Tasks</Link>
         <ChevronRight className="w-3 h-3" />
         <span>{isEditMode ? `#TQ-${String(id).padStart(2, '0')} / Edit` : 'New task'}</span>
@@ -160,7 +160,7 @@ const TaskForm: React.FC = () => {
 
         {/* Basics */}
         <div className="space-y-4">
-          <div className="text-[11.5px] font-mono uppercase tracking-[0.08em] text-[#9A9EB0]">Basics</div>
+          <div className="text-[11.5px] font-mono uppercase tracking-[0.08em] text-[#666B80]">Basics</div>
 
           <div>
             <label className="block text-[13.8px] font-semibold mb-[7px]">
@@ -178,7 +178,7 @@ const TaskForm: React.FC = () => {
 
           <div>
             <label className="block text-[13.8px] font-semibold mb-[7px]">
-              Description <span className="text-[12px] font-medium text-[#9A9EB0]">(optional)</span>
+              Description <span className="text-[12px] font-medium text-[#666B80]">(optional)</span>
             </label>
             <textarea
               value={description}
@@ -187,7 +187,7 @@ const TaskForm: React.FC = () => {
               className="w-full px-3 py-2.5 border-[1.5px] border-[#E4E6F0] rounded-[10px] text-[14.5px] focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEEDFC] outline-none transition resize-y min-h-[110px]"
               maxLength={1000}
             />
-            <div className="text-right font-mono text-[11.5px] text-[#9A9EB0] mt-1.5">
+            <div className="text-right font-mono text-[11.5px] text-[#666B80] mt-1.5">
               {description.length}/1000
             </div>
           </div>
@@ -195,7 +195,7 @@ const TaskForm: React.FC = () => {
 
         {/* Classification */}
         <div className="space-y-4 border-t border-[#E4E6F0] pt-5">
-          <div className="text-[11.5px] font-mono uppercase tracking-[0.08em] text-[#9A9EB0]">Classification</div>
+          <div className="text-[11.5px] font-mono uppercase tracking-[0.08em] text-[#666B80]">Classification</div>
 
           <div>
             <label className="block text-[13.8px] font-semibold mb-[7px]">Status</label>
@@ -270,7 +270,7 @@ const TaskForm: React.FC = () => {
 
         {/* Scheduling & Ownership */}
         <div className="space-y-4 border-t border-[#E4E6F0] pt-5">
-          <div className="text-[11.5px] font-mono uppercase tracking-[0.08em] text-[#9A9EB0]">Scheduling &amp; ownership</div>
+          <div className="text-[11.5px] font-mono uppercase tracking-[0.08em] text-[#666B80]">Scheduling &amp; ownership</div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -323,12 +323,12 @@ const TaskForm: React.FC = () => {
                   </div>
                   <div>
                     <div className="text-[13.8px] font-semibold">{user?.username || 'You'}</div>
-                    <div className="text-[12px] text-[#9A9EB0] font-mono">auto-assigned</div>
+                    <div className="text-[12px] text-[#666B80] font-mono">auto-assigned</div>
                   </div>
-                  <Lock className="w-4 h-4 text-[#9A9EB0] ml-auto" />
+                  <Lock className="w-4 h-4 text-[#666B80] ml-auto" />
                 </div>
               )}
-              <p className="text-[12.5px] text-[#9A9EB0] mt-1.5">
+              <p className="text-[12.5px] text-[#666B80] mt-1.5">
                 {isAdmin 
                   ? 'As admin, you can assign this task to any team member.'
                   : 'Tasks you create are assigned to you automatically.'

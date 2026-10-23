@@ -37,7 +37,7 @@ const StatsCard: React.FC<StatsCardProps> = ({
 
   return (
     <div className="bg-white border border-[#E4E6F0] rounded-xl p-4 relative overflow-hidden">
-      <span className="absolute top-3 right-4 font-mono text-[10px] text-[#9A9EB0] tracking-wide">
+      <span className="absolute top-3 right-4 font-mono text-[10px] text-[#666B80] tracking-wide">
         {tag}
       </span>
       <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-3 ${iconBg}`}>

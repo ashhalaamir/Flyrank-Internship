@@ -160,7 +160,7 @@ const TaskList: React.FC = () => {
             className={`py-2.5 px-1 mr-[18px] text-[13px] font-semibold flex items-center gap-2 border-b-2 transition whitespace-nowrap ${
               activeTab === tab.key
                 ? 'text-[#12131C] border-[#4F46E5]'
-                : 'text-[#9A9EB0] border-transparent hover:text-[#666B80]'
+                : 'text-[#666B80] border-transparent hover:text-[#666B80]'
             }`}
           >
             {tab.label}
@@ -178,13 +178,13 @@ const TaskList: React.FC = () => {
       {/* Filter Bar */}
       <div className="flex items-center gap-2.5 flex-wrap w-full">
         <div className="flex items-center gap-2 flex-1 min-w-[200px] max-w-[320px] bg-white border-[1.5px] border-[#E4E6F0] rounded-[10px] px-3 py-2.5 focus-within:border-[#4F46E5] focus-within:ring-2 focus-within:ring-[#EEEDFC] transition">
-          <Search className="w-4 h-4 text-[#9A9EB0] flex-shrink-0" />
+          <Search className="w-4 h-4 text-[#666B80] flex-shrink-0" />
           <input
             type="text"
             placeholder="Filter by title..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="flex-1 border-none outline-none bg-transparent text-[13px] placeholder:text-[#9A9EB0] min-w-[100px]"
+            className="flex-1 border-none outline-none bg-transparent text-[13px] placeholder:text-[#666B80] min-w-[100px]"
           />
         </div>
 
@@ -224,13 +224,13 @@ const TaskList: React.FC = () => {
 
         <button
           onClick={clearFilters}
-          className="flex items-center gap-1.5 text-[11.5px] font-mono text-[#9A9EB0] hover:text-[#E5473A] transition whitespace-nowrap px-1"
+          className="flex items-center gap-1.5 text-[11.5px] font-mono text-[#666B80] hover:text-[#E5473A] transition whitespace-nowrap px-1"
         >
           <X className="w-3 h-3" />
           Clear filters
         </button>
 
-        <span className="ml-auto text-[12px] text-[#9A9EB0] font-mono whitespace-nowrap">
+        <span className="ml-auto text-[12px] text-[#666B80] font-mono whitespace-nowrap">
           {filteredTasks.length} results
         </span>
       </div>
@@ -238,7 +238,7 @@ const TaskList: React.FC = () => {
       {/* Task List Table */}
       <div className="bg-white border border-[#E4E6F0] rounded-[14px] overflow-hidden w-full">
         {/* Table Head */}
-        <div className={`grid ${isAdmin ? 'grid-cols-[60px_1fr_140px_100px_100px_120px_28px]' : 'grid-cols-[60px_1fr_100px_100px_120px_28px]'} items-center gap-3 px-5 py-3 bg-[#EFF0F7] border-b border-[#E4E6F0] font-mono text-[10px] uppercase tracking-wide text-[#9A9EB0]`}>
+        <div className={`grid ${isAdmin ? 'grid-cols-[60px_1fr_140px_100px_100px_120px_28px]' : 'grid-cols-[60px_1fr_100px_100px_120px_28px]'} items-center gap-3 px-5 py-3 bg-[#EFF0F7] border-b border-[#E4E6F0] font-mono text-[10px] uppercase tracking-wide text-[#666B80]`}>
           <span>ID</span>
           <span className="flex items-center gap-1">Task <ChevronDown className="w-2.5 h-2.5 opacity-60" /></span>
           {isAdmin && <span>Assigned to</span>}
@@ -260,10 +260,10 @@ const TaskList: React.FC = () => {
                 onClick={() => handleRowClick(task.id)}
                 className={`grid ${isAdmin ? 'grid-cols-[60px_1fr_140px_100px_100px_120px_28px]' : 'grid-cols-[60px_1fr_100px_100px_120px_28px]'} items-center gap-3 px-5 py-3.5 border-b border-[#E4E6F0] hover:bg-[#EFF0F7] cursor-pointer transition last:border-none`}
               >
-                <span className="font-mono text-[11px] text-[#9A9EB0]">#TQ-{String(task.id).padStart(2, '0')}</span>
+                <span className="font-mono text-[11px] text-[#666B80]">#TQ-{String(task.id).padStart(2, '0')}</span>
                 <div className="min-w-0">
                   <div className="font-semibold text-[13px] truncate">{task.title}</div>
-                  <div className="text-[11px] text-[#9A9EB0]">{task.category}</div>
+                  <div className="text-[11px] text-[#666B80]">{task.category}</div>
                 </div>
                 {isAdmin && (
                   <div className="flex items-center gap-2 text-[12.5px] min-w-0">
@@ -282,12 +282,12 @@ const TaskList: React.FC = () => {
                 <span className={`inline-flex items-center gap-1.5 text-[10.5px] font-semibold px-2.5 py-1 rounded-full justify-self-start before:content-[''] before:w-1.5 before:h-1.5 before:rounded-full ${getStatusPillClass(task.status)}`}>
                   {getStatusLabel(task.status)}
                 </span>
-                <ChevronRight className="w-4 h-4 text-[#9A9EB0] justify-self-end flex-shrink-0" />
+                <ChevronRight className="w-4 h-4 text-[#666B80] justify-self-end flex-shrink-0" />
               </div>
             );
           })
         ) : (
-          <div className="flex flex-col items-center justify-center py-16 text-[#9A9EB0]">
+          <div className="flex flex-col items-center justify-center py-16 text-[#666B80]">
             <Search className="w-10 h-10 mb-3 opacity-50" />
             <p className="text-[13.5px] font-semibold text-[#666B80]">No tasks match your filters</p>
             <p className="text-[12px]">Try adjusting or clearing the filters above.</p>

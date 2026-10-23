@@ -35,7 +35,7 @@ const DonutChart: React.FC<DonutChartProps> = ({ data, total, totalLabel = 'task
         <div className="absolute inset-4 bg-white rounded-full flex items-center justify-center">
           <div className="text-center">
             <div className="font-display text-[21px] font-bold leading-none">{total}</div>
-            <div className="text-[9.5px] text-[#9A9EB0] font-mono uppercase tracking-wide">{totalLabel}</div>
+            <div className="text-[9.5px] text-[#666B80] font-mono uppercase tracking-wide">{totalLabel}</div>
           </div>
         </div>
       </div>

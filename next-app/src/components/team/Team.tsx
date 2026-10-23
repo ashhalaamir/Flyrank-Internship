@@ -55,7 +55,7 @@ const Team: React.FC = () => {
 
   if (error) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[60vh] text-[#9A9EB0]">
+      <div className="flex flex-col items-center justify-center min-h-[60vh] text-[#666B80]">
         <AlertCircle className="w-12 h-12 mb-3 text-[#E5473A]" />
         <p className="text-[13.5px] font-semibold text-[#666B80]">{error}</p>
         <button 
@@ -92,7 +92,7 @@ const Team: React.FC = () => {
           this is the same card shape used for every other stat in the app. */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-white border border-[#E4E6F0] rounded-[14px] p-[18px] relative overflow-hidden">
-          <span className="absolute top-3.5 right-4 font-mono text-[10px] text-[#9A9EB0] tracking-[0.03em]">#MEM</span>
+          <span className="absolute top-3.5 right-4 font-mono text-[10px] text-[#666B80] tracking-[0.03em]">#MEM</span>
           <div className="w-8 h-8 rounded-[9px] bg-[#EEEDFC] text-[#4F46E5] flex items-center justify-center mb-3.5">
             <Users className="w-4 h-4" />
           </div>
@@ -103,7 +103,7 @@ const Team: React.FC = () => {
         </div>
 
         <div className="bg-white border border-[#E4E6F0] rounded-[14px] p-[18px] relative overflow-hidden">
-          <span className="absolute top-3.5 right-4 font-mono text-[10px] text-[#9A9EB0] tracking-[0.03em]">#DONE</span>
+          <span className="absolute top-3.5 right-4 font-mono text-[10px] text-[#666B80] tracking-[0.03em]">#DONE</span>
           <div className="w-8 h-8 rounded-[9px] bg-[#E4F8EE] text-[#0EA36B] flex items-center justify-center mb-3.5">
             <CheckCircle2 className="w-4 h-4" />
           </div>
@@ -114,7 +114,7 @@ const Team: React.FC = () => {
         </div>
 
         <div className="bg-white border border-[#E4E6F0] rounded-[14px] p-[18px] relative overflow-hidden">
-          <span className="absolute top-3.5 right-4 font-mono text-[10px] text-[#9A9EB0] tracking-[0.03em]">#LATE</span>
+          <span className="absolute top-3.5 right-4 font-mono text-[10px] text-[#666B80] tracking-[0.03em]">#LATE</span>
           {/* bg-[#FCE9E7] is the app's actual danger-light token — red-50 is Tailwind's
               default red and reads slightly off next to the custom palette used elsewhere */}
           <div className="w-8 h-8 rounded-[9px] bg-[#FCE9E7] text-[#E5473A] flex items-center justify-center mb-3.5">
@@ -161,7 +161,7 @@ const Team: React.FC = () => {
                 <div className="font-semibold text-[13px]">
                   {member.username}
                   {isCurrentUser && (
-                    <span className="ml-2 text-[10px] font-mono text-[#9A9EB0]">(you)</span>
+                    <span className="ml-2 text-[10px] font-mono text-[#666B80]">(you)</span>
                   )}
                 </div>
                 <div className="text-[12.5px] text-[#666B80] truncate">{member.email}</div>
@@ -183,7 +183,7 @@ const Team: React.FC = () => {
             );
           })
         ) : (
-          <div className="flex flex-col items-center justify-center py-16 text-[#9A9EB0]">
+          <div className="flex flex-col items-center justify-center py-16 text-[#666B80]">
             <Users className="w-10 h-10 mb-3 opacity-50" />
             <p className="text-[13.5px] font-semibold text-[#666B80]">No team members found</p>
             <p className="text-[12px]">Invite team members to get started.</p>

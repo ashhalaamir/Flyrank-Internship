@@ -18,7 +18,7 @@ const TaskRow: React.FC<TaskRowProps> = ({
   status,
 }) => {
   const priorityColors = {
-    Low: 'text-[#9A9EB0] before:bg-[#9A9EB0]',
+    Low: 'text-[#666B80] before:bg-[#9A9EB0]',
     Medium: 'text-[#E38B00] before:bg-[#E38B00]',
     High: 'text-[#E5473A] before:bg-[#E5473A]',
   };
@@ -33,10 +33,10 @@ const TaskRow: React.FC<TaskRowProps> = ({
 
   return (
     <div className="grid grid-cols-[60px_1fr_90px_90px_100px] items-center gap-2.5 py-2.5 px-1 border-b border-[#E4E6F0] text-[13px] last:border-none">
-      <span className="font-mono text-[11px] text-[#9A9EB0]">{id}</span>
+      <span className="font-mono text-[11px] text-[#666B80]">{id}</span>
       <div>
         <div className="font-semibold text-[13px]">{title}</div>
-        <div className="text-[11px] text-[#9A9EB0]">{category}</div>
+        <div className="text-[11px] text-[#666B80]">{category}</div>
       </div>
       <span className={`flex items-center gap-1.5 text-[12px] text-[#666B80] before:content-[''] before:w-1.5 before:h-1.5 before:rounded-full ${priorityColors[priority]}`}>
         {priority}

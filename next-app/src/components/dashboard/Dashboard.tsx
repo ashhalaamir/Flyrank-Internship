@@ -232,7 +232,7 @@ const Dashboard: React.FC = () => {
           <div className="flex items-start justify-between mb-4">
             <div>
               <h3 className="font-['Sora'] font-bold text-xl">Status breakdown</h3>
-              <p className="text-[13px] text-[#9A9EB0] font-mono">{totalTasks} tasks total</p>
+              <p className="text-[13px] text-[#666B80] font-mono">{totalTasks} tasks total</p>
             </div>
           </div>
           <DonutChart data={statusData} total={totalTasks} totalLabel="tasks" />
@@ -242,7 +242,7 @@ const Dashboard: React.FC = () => {
           <div className="flex items-start justify-between mb-4">
             <div>
               <h3 className="font-['Sora'] font-bold text-xl">Priority mix</h3>
-              <p className="text-[13px] text-[#9A9EB0] font-mono">across open tasks</p>
+              <p className="text-[13px] text-[#666B80] font-mono">across open tasks</p>
             </div>
           </div>
           <PriorityBars data={priorityData} />
@@ -254,7 +254,7 @@ const Dashboard: React.FC = () => {
         <div className="flex items-start justify-between mb-4 flex-wrap gap-2">
           <div>
             <h3 className="font-['Sora'] font-bold text-xl">Recent tasks</h3>
-            <p className="text-[13px] text-[#9A9EB0] font-mono">latest activity</p>
+            <p className="text-[13px] text-[#666B80] font-mono">latest activity</p>
           </div>
           <Link href="/tasks" className="text-[13px] font-semibold text-[#4F46E5] hover:underline">View all →</Link>
         </div>
@@ -277,7 +277,7 @@ const Dashboard: React.FC = () => {
         </div>
 
         {/* Task List Header */}
-        <div className="grid grid-cols-[60px_1fr_90px_90px_100px] items-center gap-2.5 px-1 pb-2 border-b border-[#E4E6F0] font-mono text-[11px] uppercase tracking-wide text-[#9A9EB0]">
+        <div className="grid grid-cols-[60px_1fr_90px_90px_100px] items-center gap-2.5 px-1 pb-2 border-b border-[#E4E6F0] font-mono text-[11px] uppercase tracking-wide text-[#666B80]">
           <span>ID</span>
           <span>Task</span>
           <span>Priority</span>
@@ -298,7 +298,7 @@ const Dashboard: React.FC = () => {
             />
           ))
         ) : (
-          <div className="text-center py-8 text-[#9A9EB0]">
+          <div className="text-center py-8 text-[#666B80]">
             <p>No tasks yet. Create your first task!</p>
           </div>
         )}

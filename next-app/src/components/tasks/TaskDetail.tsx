@@ -104,7 +104,7 @@ const TaskDetail: React.FC = () => {
 
   const getStatusIcon = (status: string) => {
     switch (status) {
-      case 'Pending': return <Circle className="w-4 h-4 text-[#9A9EB0]" />;
+      case 'Pending': return <Circle className="w-4 h-4 text-[#666B80]" />;
       case 'InProgress': return <Clock className="w-4 h-4 text-[#E38B00]" />;
       case 'Completed': return <CheckCircle2 className="w-4 h-4 text-[#0EA36B]" />;
       default: return null;
@@ -137,7 +137,7 @@ const TaskDetail: React.FC = () => {
 
   if (!task) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[60vh] text-[#9A9EB0]">
+      <div className="flex flex-col items-center justify-center min-h-[60vh] text-[#666B80]">
         <AlertCircle className="w-12 h-12 mb-3" />
         <p className="text-lg font-semibold text-[#666B80]">Task not found</p>
         <Link href="/tasks" className="text-[#4F46E5] hover:underline mt-2">Back to tasks</Link>
@@ -148,7 +148,7 @@ const TaskDetail: React.FC = () => {
   return (
     <div className="space-y-5 w-full">
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-[12.5px] text-[#9A9EB0] font-mono">
+      <div className="flex items-center gap-2 text-[12.5px] text-[#666B80] font-mono">
         <Link href="/tasks" className="hover:text-[#4F46E5] transition">Tasks</Link>
         <ChevronRight className="w-3 h-3" />
         <span>#TQ-{String(task.id).padStart(2, '0')}</span>
@@ -169,7 +169,7 @@ const TaskDetail: React.FC = () => {
           <h1 className="text-3xl md:text-4xl font-bold font-['Sora'] tracking-tight break-words">
             {task.title}
           </h1>
-          <p className="text-[14px] text-[#9A9EB0] font-mono">
+          <p className="text-[14px] text-[#666B80] font-mono">
             Created by <span className="text-[#666B80] font-semibold">{displayUserName}</span> · 
             last updated {new Date(task.updatedAt || task.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
           </p>
@@ -216,7 +216,7 @@ const TaskDetail: React.FC = () => {
             <h3 className="font-['Sora'] font-bold text-[16px] mb-4">Properties</h3>
             <div className="space-y-3">
               <div className="flex justify-between items-center py-2 border-b border-[#E4E6F0]">
-                <span className="flex items-center gap-2 text-[12.5px] text-[#9A9EB0]">
+                <span className="flex items-center gap-2 text-[12.5px] text-[#666B80]">
                   <Tag className="w-3.5 h-3.5" />
                   Status
                 </span>
@@ -227,7 +227,7 @@ const TaskDetail: React.FC = () => {
               </div>
 
               <div className="flex justify-between items-center py-2 border-b border-[#E4E6F0]">
-                <span className="flex items-center gap-2 text-[12.5px] text-[#9A9EB0]">
+                <span className="flex items-center gap-2 text-[12.5px] text-[#666B80]">
                   <AlertCircle className="w-3.5 h-3.5" />
                   Priority
                 </span>
@@ -237,7 +237,7 @@ const TaskDetail: React.FC = () => {
               </div>
 
               <div className="flex justify-between items-center py-2 border-b border-[#E4E6F0]">
-                <span className="flex items-center gap-2 text-[12.5px] text-[#9A9EB0]">
+                <span className="flex items-center gap-2 text-[12.5px] text-[#666B80]">
                   <Tag className="w-3.5 h-3.5" />
                   Category
                 </span>
@@ -245,7 +245,7 @@ const TaskDetail: React.FC = () => {
               </div>
 
               <div className="flex justify-between items-center py-2 border-b border-[#E4E6F0]">
-                <span className="flex items-center gap-2 text-[12.5px] text-[#9A9EB0]">
+                <span className="flex items-center gap-2 text-[12.5px] text-[#666B80]">
                   <Calendar className="w-3.5 h-3.5" />
                   Due date
                 </span>
@@ -256,7 +256,7 @@ const TaskDetail: React.FC = () => {
               </div>
 
               <div className="flex justify-between items-center py-2">
-                <span className="flex items-center gap-2 text-[12.5px] text-[#9A9EB0]">
+                <span className="flex items-center gap-2 text-[12.5px] text-[#666B80]">
                   <UserIcon className="w-3.5 h-3.5" />
                   Assigned to
                 </span>

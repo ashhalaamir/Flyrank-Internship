@@ -176,13 +176,13 @@ const Register: React.FC = () => {
               <div>
                 <label className="block text-sm font-semibold text-[#12131C] mb-1.5">Username</label>
                 <div className="relative">
-                  <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9A9EB0]" />
+                  <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#666B80]" />
                   <input
                     type="text"
                     required
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    className="w-full pl-10 pr-3.5 py-3 bg-white border border-[#E4E6F0] rounded-xl text-sm focus:ring-2 focus:ring-[#4F46E5] focus:border-[#4F46E5] outline-none transition placeholder:text-[#9A9EB0]"
+                    className="w-full pl-10 pr-3.5 py-3 bg-white border border-[#E4E6F0] rounded-xl text-sm focus:ring-2 focus:ring-[#4F46E5] focus:border-[#4F46E5] outline-none transition placeholder:text-[#666B80]"
                     placeholder="Choose a username"
                   />
                 </div>
@@ -191,13 +191,13 @@ const Register: React.FC = () => {
               <div>
                 <label className="block text-sm font-semibold text-[#12131C] mb-1.5">Email</label>
                 <div className="relative">
-                  <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9A9EB0]" />
+                  <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#666B80]" />
                   <input
                     type="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pl-10 pr-3.5 py-3 bg-white border border-[#E4E6F0] rounded-xl text-sm focus:ring-2 focus:ring-[#4F46E5] focus:border-[#4F46E5] outline-none transition placeholder:text-[#9A9EB0]"
+                    className="w-full pl-10 pr-3.5 py-3 bg-white border border-[#E4E6F0] rounded-xl text-sm focus:ring-2 focus:ring-[#4F46E5] focus:border-[#4F46E5] outline-none transition placeholder:text-[#666B80]"
                     placeholder="you@email.com"
                   />
                 </div>
@@ -206,19 +206,19 @@ const Register: React.FC = () => {
               <div>
                 <label className="block text-sm font-semibold text-[#12131C] mb-1.5">Password</label>
                 <div className="relative">
-                  <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9A9EB0]" />
+                  <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#666B80]" />
                   <input
                     type={showPassword ? 'text' : 'password'}
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full pl-10 pr-10 py-3 bg-white border border-[#E4E6F0] rounded-xl text-sm focus:ring-2 focus:ring-[#4F46E5] focus:border-[#4F46E5] outline-none transition placeholder:text-[#9A9EB0]"
+                    className="w-full pl-10 pr-10 py-3 bg-white border border-[#E4E6F0] rounded-xl text-sm focus:ring-2 focus:ring-[#4F46E5] focus:border-[#4F46E5] outline-none transition placeholder:text-[#666B80]"
                     placeholder="Create a password"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#9A9EB0] hover:text-[#666B80] transition"
+                    className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#666B80] hover:text-[#666B80] transition"
                   >
                     {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </button>
@@ -235,7 +235,7 @@ const Register: React.FC = () => {
                         />
                       ))}
                     </div>
-                    <p className="text-[10px] font-mono text-[#9A9EB0] mt-1">
+                    <p className="text-[10px] font-mono text-[#666B80] mt-1">
                       {strengthLabels[strength] || 'At least 8 characters'}
                     </p>
                   </div>
@@ -245,19 +245,19 @@ const Register: React.FC = () => {
               <div>
                 <label className="block text-sm font-semibold text-[#12131C] mb-1.5">Confirm password</label>
                 <div className="relative">
-                  <Check className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9A9EB0]" />
+                  <Check className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#666B80]" />
                   <input
                     type={showConfirmPassword ? 'text' : 'password'}
                     required
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="w-full pl-10 pr-10 py-3 bg-white border border-[#E4E6F0] rounded-xl text-sm focus:ring-2 focus:ring-[#4F46E5] focus:border-[#4F46E5] outline-none transition placeholder:text-[#9A9EB0]"
+                    className="w-full pl-10 pr-10 py-3 bg-white border border-[#E4E6F0] rounded-xl text-sm focus:ring-2 focus:ring-[#4F46E5] focus:border-[#4F46E5] outline-none transition placeholder:text-[#666B80]"
                     placeholder="Re-enter your password"
                   />
                   <button
                     type="button"
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#9A9EB0] hover:text-[#666B80] transition"
+                    className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#666B80] hover:text-[#666B80] transition"
                   >
                     {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </button>
