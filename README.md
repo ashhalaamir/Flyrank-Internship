@@ -1,4 +1,4 @@
-# Task Management Frontend
+# Task Management Frontend/SWITCH TO STREAMING AI CHAT INTERFACE BRANCH FOR THE FINAL BUILD
 
 A task management frontend built with the Next.js App Router and Tailwind CSS. It uses Mock Service Worker (MSW) to provide sample API data without a backend, and includes a Gemini-powered streaming assistant at `/chat`.
 
