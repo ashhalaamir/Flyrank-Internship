@@ -1,6 +1,6 @@
 # FlyRank Internship - Assignment: Accessible Component Fundamentals
 
-This branch contains the submission for **Assignment 2: Accessible Component Fundamentals**. 
+This branch contains the submission for **Assignment: Accessible Component Fundamentals**. 
 
 The goal of this assignment was to build three interactive components from scratch (Modal, Tabs, and Disclosure) strictly following the W3C ARIA Authoring Practices, and then compare them against the generated code of `shadcn/ui` to identify accessibility gaps.
 
