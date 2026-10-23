@@ -1,4 +1,4 @@
-# FlyRank Internship - Assignment 2: Accessible Component Fundamentals
+# FlyRank Internship - Assignment: Accessible Component Fundamentals
 
 This branch contains the submission for **Assignment 2: Accessible Component Fundamentals**. 
 
