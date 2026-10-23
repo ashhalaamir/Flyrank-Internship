@@ -1,0 +1,138 @@
+Frontend Engineering Report
+AI-Assisted Development & Manual Refinement
+Project: Task Management Tool — React Frontend
+Author: Ashhal Aamir
+Scope: All six application screens, API layer, authentication context, and layout components
+
+1. Overview
+The frontend was built in React 18 with TypeScript, Vite, Tailwind CSS, and React Router. AI assistance (GitHub Copilot and a conversational assistant) was used throughout, but in a specific role: as a scaffolding and translation tool, not as an architect. Every architectural decision — component boundaries, state ownership, routing structure, and API contracts — was made manually, then AI was used to accelerate the mechanical work of turning those decisions into working code.
+
+The most valuable use of AI was translating static HTML/CSS design mockups into idiomatic React components. The least valuable — and in several cases actively harmful — was generating code that assumed a working backend, which required systematic manual correction.
+
+2. Prompts Used During Development
+The prompts fell into five recurring categories. Representative examples are listed below rather than an exhaustive log.
+
+2.1 Architecture and Structure Prompts
+Used at the start to establish conventions before any code was written.
+
+"I have a full-stack task management project. Set up a React + TypeScript + Vite project with Tailwind, React Router, and an API client layer. Here is the folder structure I want — explain why each folder exists before creating anything."
+
+"Create an AuthContext that holds the user, exposes login/register/logout, and derives isAdmin. Persist the session to localStorage. Do not add redirect logic inside the context."
+
+The second prompt was deliberately constrained. Left unconstrained, the first generated version placed navigation calls inside the context, which later caused a redirect loop when the backend was disconnected.
+
+2.2 Design Translation Prompts
+The highest-volume category. Each screen was designed as a static HTML/CSS prototype first, then converted.
+
+"Here is an HTML prototype for the task detail screen. Convert it to a React component using TypeScript and Tailwind. Keep the exact spacing, radii, and colors. Extract repeated pieces into subcomponents only if they repeat across screens."
+
+"Here is the dashboard HTML. The stats cards, donut chart, and priority bars are reusable — extract them into separate files with typed props."
+
+This pattern worked well because the design was already decided. The AI was doing translation, not design.
+
+2.3 API Integration Prompts
+"Generate typed API client functions for these endpoints: [list]. Use axios. Add a response interceptor that attaches the JWT from localStorage to every request."
+
+"The backend returns tasks with a nested user object. Map task.user.username into a flat userName field when fetching, so components don't need to know about the nesting."
+
+The second prompt was written after discovering that "Assigned to" was rendering as "Unknown" — the original AI-generated code assumed a flat userName field that the API never returned.
+
+2.4 Debugging Prompts
+"My React app redirects from /dashboard to /login even though I removed the ProtectedRoute wrapper. Do not guess — search the codebase for window.location, <Navigate>, navigate(, and useEffect calls that could fire on mount, and report file paths with line numbers."
+
+"This TypeScript error appears in four files: 'Task' is an ambiguous reference between 'TaskManagement.Core.Models.Task' and 'System.Threading.Tasks.Task'. Explain why and give me all the ways to resolve it."
+
+The redirect prompt is notable for what it forbids: guessing. The first attempt at that question produced a plausible but wrong answer about React Router. The version that demanded file paths and line numbers found the actual cause in the axios interceptor.
+
+2.5 Verification and Testing Prompts
+"Here is my Login component. Assume I am a reviewer who does not trust this code. What are the five most likely failure modes, and what inputs would trigger each?"
+
+"Generate a manual test checklist for the task list screen covering filters, search, empty states, and role-based column visibility. Two to three lines per test."
+
+3. How AI Assisted Throughout Implementation
+3.1 Translation from Design to Code
+The largest time saving. Six screen prototypes in raw HTML/CSS were converted to typed React components. The AI reliably preserved visual details — specific hex values, border radii, font sizes — that would have been tedious to transcribe by hand across roughly 4,000 lines of markup.
+
+3.2 Boilerplate and Repetition
+API client files, TypeScript interfaces, form field handlers, and the repetitive structure of six similar list/table rows were generated quickly. These are patterns where the correct answer is already known and the work is purely mechanical.
+
+3.3 Error Interpretation
+TypeScript errors, in particular the Task naming collision between the domain model and System.Threading.Tasks.Task, were diagnosed faster with AI than by reading compiler output alone. The AI explained why the collision occurred and offered three distinct fixes (alias, fully-qualified name, rename), which allowed a deliberate choice rather than a patch.
+
+3.4 What AI Did Not Do
+AI was not permitted to make architectural decisions. Specifically, it did not:
+
+Choose the routing structure or decide which routes require authentication
+
+Design the API contracts or database schema
+
+Decide how role-based UI should differ between Admin and Regular User
+
+Determine the order in which features were built
+
+Those decisions were made first, then expressed as prompts.
+
+4. Manual Improvements, Corrections, and Refactoring
+This section documents where AI output was rejected, corrected, or rewritten. These are the cases that matter most for demonstrating engineering judgment.
+
+4.1 Resolving the Task Naming Collision
+AI output: Generated code using Task as the model name, which collided with System.Threading.Tasks.Task in every file that used async.
+
+Manual correction: Adopted a project-wide alias — using TaskEntity = TaskManagement.Core.Models.Task in C# and a corresponding import alias in TypeScript. Applied consistently rather than per-file. The AI initially proposed renaming the model; this was rejected because the model name is part of the domain vocabulary and renaming would have rippled through the API contract.
+
+4.2 Removing Hardcoded Dashboard Statistics
+AI output: The first dashboard implementation included hardcoded trend values such as "3 since last week" on the stats cards.
+
+Manual correction: Replaced with calculated values derived from actual task timestamps. Wrote getWeeklyChange() and getCompletedWeeklyChange() functions that compare the last seven days against the previous seven. Also added a guard so trends do not render at all when a user has zero tasks — a hardcoded "3 since last week" on a brand-new account was not just wrong, it was misleading.
+
+4.3 Correcting the Admin vs. Regular User Task Scope
+AI output: The dashboard's stats endpoint was called identically for both roles, which meant an Admin saw statistics for their own tasks rather than the system.
+
+Manual correction: Traced the issue to the controller, where GetAllAsync(userId, isAdmin) was passing the admin's own ID with isAdmin: true, which the service layer interpreted as "admin viewing their own tasks." Corrected to GetAllAsync(isAdmin ? 0 : userId, isAdmin) — passing 0 as the user ID for admins, which the service correctly treats as "no user filter." Also replaced the Admin dashboard's four stat cards with Total Tasks, Active Tasks, Completed, and Overdue, since "My total tasks" was meaningless for an Admin viewing system-wide data.
+
+4.4 Fixing the Assignee Column Rendering "Unknown"
+AI output: The task list mapped task.userName directly, assuming the API returned that field.
+
+Manual correction: The API returned a nested user object instead. Rather than change the backend contract to satisfy the frontend, added a fallback mapping in TaskList.tsx and TaskDetail.tsx: task.userName || task.user?.username || 'Unknown'. This made the frontend resilient to both shapes, which proved useful when the backend was later updated to return both.
+
+4.5 Adding Due-Date Validation
+AI output: The task form accepted any date, including past dates.
+
+Manual correction: Added min={new Date().toISOString().split('T')[0]} to the date input to constrain the browser picker, plus an explicit check in handleSubmit that rejects past dates with a clear error message, plus a live warning beneath the field when a past date is selected. Three layers, because the browser constraint alone can be bypassed by typing.
+
+4.6 Removing the ProtectedRoute Guard for the Standalone Build
+AI output: The original architecture wrapped every authenticated screen in a <ProtectedRoute> component that redirected unauthenticated users to /login.
+
+Manual correction: When the frontend was extracted as a standalone showcase without its backend, the guard became counterproductive — every route bounced to /login because there was no session to validate. Removed the wrapper entirely, along with the now-unused LoadingSpinner import and useAuth destructure in App.tsx, rather than leaving a hollowed-out component in place. Also disabled the axios interceptor's hard redirect (window.location.href = '/login'), which was bypassing React Router and making the problem look like a routing bug.
+
+4.7 Standardizing the Design System
+AI output: Generated components used inconsistent values — rounded-xl in some places, rounded-[14px] in others; text-2xl for headings on some screens and text-3xl md:text-4xl on others; Tailwind's default red-50 alongside the project's custom #FCE9E7 danger token.
+
+Manual correction: Conducted a pass across all screens to standardize on the design tokens defined in the mockups: 14px radius for panels, 10px for inputs and buttons, 20px for the profile hero only. Headings unified. Color tokens replaced with the project palette throughout. This was not a functional bug, but inconsistency across screens reads as carelessness in a portfolio piece.
+
+4.8 Replacing the Hardcoded Activity Heatmap
+AI output: The profile screen's activity heatmap was generated with pseudo-random values — visually plausible, functionally meaningless.
+
+Manual correction: Wrote buildActivityData(), which groups completed tasks by week and day across the last 14 weeks and returns a real 7×14 grid. The heatmap now reflects actual completion history, shows a total-completions count, and displays an empty state when the user has completed nothing.
+
+4.9 Resolving the Assignment Bug
+AI output: Admins could select any user in the "Assign to" dropdown, but tasks were always assigned to the admin.
+
+Manual correction: Root cause was in the controller's Create method, which passed GetUserId() — the admin's ID — regardless of the request body. Added logic to read request.AssignToUserId when the caller is an Admin, with a fallback to the caller's own ID for Regular Users. Verified that the role restriction held: Regular Users still cannot assign tasks to anyone but themselves, and the /assign endpoint remains protected by [Authorize(Roles = "Admin")].
+
+4.10 Tightening the TypeScript Imports
+AI output: Generated files used value imports for types — import { User } from '../types' — which failed under verbatimModuleSyntax.
+
+Manual correction: Converted to explicit type imports (import type { User } from '../types') across all API clients and context files. Chose to keep verbatimModuleSyntax enabled rather than disable the compiler flag, since the stricter setting catches genuine mistakes about what is erased at compile time.
+
+5. Observations
+Three patterns emerged that are worth recording.
+
+AI is strongest when the decision is already made. Converting a finished HTML mockup to React was reliable and fast. Asking AI to decide what the dashboard should display produced plausible but wrong output — hardcoded trends, personal stats labeled as system stats.
+
+AI assumes a working environment. A significant portion of the manual work was correcting code that silently assumed a running backend, a populated database, or a flat API response shape. The nested-user bug and the axios hard-redirect were both symptoms of this.
+
+Prompts that forbid guessing outperform prompts that ask for answers. The most effective debugging prompt in the project was the one that said "do not guess — report file paths and line numbers." The unconstrained version of the same question produced a confident, wrong answer about React Router.
+
+6. Summary
+AI assistance reduced the mechanical cost of building six screens — roughly 4,000 lines of translated markup, a typed API layer, and a consistent design system. It did not reduce the cost of thinking through the data model, the role permissions, or the failure modes of a disconnected frontend. The corrections documented in Section 4 represent the actual engineering work: identifying where generated code was plausible but wrong, understanding why, and fixing it in a way that held up under testing.
